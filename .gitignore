@@ -1,0 +1,8 @@
+.lake/
+*.aux
+*.log
+*.out.tex
+*.synctex.gz
+__pycache__/
+figure/pmfs_cache.npz
+figure/run.log
