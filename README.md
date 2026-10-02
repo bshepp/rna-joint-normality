@@ -11,8 +11,8 @@ centered and scaled, converges in distribution to a bivariate normal law with co
 
 ## How this was made
 
-This is not a conventional paper and I am not its mathematician. I'm a software engineer with an undergraduate
-course in mathematical thinking and one previous paper (on topological robot motion planning,
+This is not a conventional paper and I am not its mathematician. I'm a software engineer with a course in
+mathematical thinking and one undergraduate paper (on topological robot motion planning,
 [arXiv:2403.05570](https://arxiv.org/abs/2403.05570)). I can follow the argument and I know what questions to ask
 of it; I could not have produced it.
 
