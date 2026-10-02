@@ -11,11 +11,21 @@ centered and scaled, converges in distribution to a bivariate normal law with co
 
 ## How this was made
 
-The mathematics, the code and the text were produced by Anthropic's Claude (Claude Fable 5.1, running as the Claude Code
-agent) at my direction; a second Claude instance refereed the proof and a third checked the citations. I am not a
-professional mathematician. The note's "Disclosure of method" section says exactly who did what. The method is
-standard (see "Related work and what is new" in the note); the point of this repository is that every computational
-claim can be re-run.
+This is not a conventional paper and I am not its mathematician. I'm a software engineer with an undergraduate
+course in mathematical thinking and one previous paper (on topological robot motion planning,
+[arXiv:2403.05570](https://arxiv.org/abs/2403.05570)). I can follow the argument and I know what questions to ask
+of it; I could not have produced it.
+
+Everything mathematical here - the proof strategy, the proof, the text, the Mathematica and Lean code, the
+literature search - was produced by Anthropic's Claude (Claude Fable 5.1, running as the Claude Code agent). My
+part was the pipeline and the judgement calls around it: choosing the problem; demanding external validation at
+every step; having a second, independent Claude instance referee the proof adversarially; having a third audit
+every citation against its source (which found two prior-work papers the first draft had missed); obtaining and
+reading the three papers the audit could only confirm second-hand; and insisting that the algebra be certified by a
+proof assistant rather than a computer algebra system. I have not independently verified the analytic estimates.
+
+What I'm offering is transparency: the note's first page says exactly who did what, and every computational claim
+in it can be re-run from this repository. The method is standard (see "Related work and what is new" in the note).
 
 ## What is here
 

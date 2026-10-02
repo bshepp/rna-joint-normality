@@ -12,22 +12,23 @@
 \newcommand{\R}{\mathbb{R}}
 
 \title[Hairpins and basepairs are jointly normal]{Hairpins and basepairs in RNA secondary structures are asymptotically jointly normal: proof of a conjecture of Bu, Kauers and Zeilberger}
-\author{Brian Sheppard}
+\author{Claude (Anthropic), directed and checked by Brian Sheppard}
 \email{bshepp@gmail.com}
-\date{September 2026}
+\date{September 2026. Not a conventional paper: see ``How this note was made'' on page 1.}
 
 \begin{document}
 \begin{abstract}
 Bu, Kauers and Zeilberger conjectured that the numbers of hairpins and of basepairs in a uniformly random
 RNA secondary structure on $n$ vertices are, after centering and scaling, asymptotically bivariate normal with
-correlation $\tfrac12\sqrt{5\sqrt5-11}=0.21233\ldots$. We give a rigorous proof. The method is the standard one
+correlation $\tfrac12\sqrt{5\sqrt5-11}=0.21233\ldots$. This note gives a rigorous proof. The method is the standard one
 (a square-root singularity that moves analytically with the marking variables, hence a quasi-power expansion of
 the moment generating function); a bivariate normal law for these two parameters was derived along these lines, at
 a heuristic level and for a family of models containing this one, by Cuesta and Manrubia in 2017, and the statement
-also follows from a general theorem of Drmota once its hypotheses are checked. Our contribution is to check them:
-we give a short self-contained proof with a uniform coefficient estimate, compute the limiting mean vector and
-covariance matrix exactly, and verify every algebraic identity used both in Mathematica and in the Lean~4 proof
-assistant.
+also follows from a general theorem of Drmota once its hypotheses are checked. What is done here is to check them:
+a short self-contained proof with a uniform coefficient estimate, the limiting mean vector and covariance matrix in
+closed form, and a verification of every algebraic identity used, both in Mathematica and in the Lean~4 proof
+assistant. The mathematics was produced by an AI system; the human role was direction, verification protocol and
+transparency, and is described on page~1.
 \end{abstract}
 \maketitle
 
@@ -92,27 +93,32 @@ the multivariate central limit theorems of Bender and Richmond \cite[Thm.~1]{BR}
 \cite[Thm.~2]{GR}, whose proofs Section~5 reproduces in this special case; \cite[Thm.~4]{GR} then gives a local
 limit theorem as well.
 
-\subsection*{Disclosure of method}
-The mathematics in this note was produced by a large language model, Anthropic's Claude (Claude Fable 5.1, run as
-the Claude Code agent), working at the author's direction. The model proposed the proof strategy, wrote the proof
-and this text, wrote and ran the verification code (Mathematica and Lean, on the author's computer), and carried out the
-literature search. A second,
-independent instance of the same model, given only the manuscript and the code, was asked to referee the proof
-adversarially; it found no errors, and the gaps in exposition that it identified have been repaired. A third
-instance checked the citations against the sources; that search is what turned up \cite{CM} and \cite{JR}, which
-the first draft of this note had missed. The author is
-not a professional mathematician. His contribution was to select the problem, direct and question the work, and
-study the argument until he understood its structure; he has not independently verified every estimate. He takes
-responsibility for the note and will correct any error brought to his attention. We state this at the outset so
-that the reader can weigh the claims accordingly; the claims that rest on exact computation are identified as such
-and the code is available at the repository listed below.
+\subsection*{How this note was made}
+This is not a conventional paper and I (Brian Sheppard) am not its mathematician. I am a software engineer with an
+undergraduate course in mathematical thinking and one previous paper, on topological robot motion planning
+\cite{JSZ}. I can follow this argument and I know what questions to ask of it; I could not have produced it.
 
-Following the practice of \cite{P}, we distinguish throughout between what is \emph{proved} (a complete argument is
-given) and what is \emph{machine-verified} (an identity confirmed by exact symbolic computation in
+Everything mathematical here was produced by Anthropic's Claude (Claude Fable 5.1, run as the Claude Code agent):
+the proof strategy, the proof, this text, the Mathematica and Lean code, and the literature search. My part was the
+pipeline and the judgement calls around it. I chose the problem; I asked for external validation at each step and
+refused to accept internal consistency as evidence; I had a second, independent instance of the model referee the
+proof adversarially (it found no errors and several gaps in exposition, which were repaired); I had a third instance
+audit every citation against its source, which is how \cite{CM} and \cite{JR}, missed by the first draft, were found;
+I obtained and read the three papers that the audit could only confirm from secondary descriptions, and had them
+checked against what the note says about them; and I insisted that the algebra be certified by a proof assistant
+rather than by a computer algebra system. I have not independently verified the analytic estimates and I do not
+claim to be able to.
+
+I am circulating this because I think the process is of interest in its own right, in the spirit of \cite{P}, and
+because the conjecture appears to be settled by it. I take responsibility for the accuracy of this description and
+for correcting any error brought to my attention. What I would value most is a reader's opinion of whether the
+chain of checks described here is one they would trust.
+
+Following the practice of \cite{P}, the note distinguishes throughout between what is \emph{proved} (a complete
+argument is given) and what is \emph{machine-verified} (an identity confirmed by exact symbolic computation in
 $\mathbb Q(\sqrt5)$ or over $\mathbb Q(x,z)$; files \texttt{checks/verify.wls}, \texttt{checks/grammar\_check.wls}).
 The algebraic identities are in addition checked by the kernel of the Lean~4 proof assistant; see
-Section~\ref{lean}. Numerical
-values are quoted only as sanity checks and no step of the proof depends on them.
+Section~\ref{lean}. Numerical values are quoted only as sanity checks and no step of the proof depends on them.
 
 \section{The generating function}
 Let $f_n(x,z)=\sum_s x^{\mathrm{hairpins}(s)}z^{\mathrm{basepairs}(s)}$ over secondary structures $s$ on $[n]$, and
@@ -333,6 +339,8 @@ multivariate generating functions}, J. Comput. Appl. Math. \textbf{41} (1992), 1
 Monatsh. Math. \textbf{187} (2018), 293--314.
 \bibitem{H} H.-K. Hwang, \emph{On convergence rates in the central limit theorems for combinatorial structures},
 European J. Combin. \textbf{19} (1998), 329--343.
+\bibitem{JSZ} C. Jardon, B. Sheppard and V. Zaveri, \emph{A motion planning algorithm in a figure eight track},
+arXiv:2403.05570 (2024).
 \bibitem{JR} E. Y. Jin and C. M. Reidys, \emph{Central and local limit theorems for RNA structures}, J. Theor. Biol.
 \textbf{250} (2008), 547--559; arXiv:0707.4281.
 \bibitem{P} J. S. Padhi, \emph{Solutions to five challenge problems in enumerative and algorithmic combinatorics, with
