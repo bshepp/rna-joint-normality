@@ -13,8 +13,9 @@ centered and scaled, converges in distribution to a bivariate normal law with co
 
 This is not a conventional paper and I am not its mathematician. I'm a software engineer with a course in
 mathematical thinking and one undergraduate paper (on topological robot motion planning,
-[arXiv:2403.05570](https://arxiv.org/abs/2403.05570)). I can follow the argument and I know what questions to ask
-of it; I could not have produced it.
+[arXiv:2403.05570](https://arxiv.org/abs/2403.05570)). In the course of this work I learned what a secondary
+structure and a hairpin are and how the argument is built; I can follow its logic in outline and I know what
+questions to ask of it. I could not have produced it and I cannot certify it.
 
 Everything mathematical here - the proof strategy, the proof, the text, the Mathematica and Lean code, the
 literature search - was produced by Anthropic's Claude (Claude Fable 5.1, running as the Claude Code agent). My
