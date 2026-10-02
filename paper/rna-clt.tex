@@ -1,6 +1,13 @@
 \documentclass[11pt]{amsart}
-\usepackage[margin=1.15in]{geometry}
+\usepackage[margin=1.2in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,graphicx,hyperref}
+\usepackage{microtype}
+\linespread{1.15}
+\setlength{\parskip}{4pt plus 1pt}
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{12pt plus 2pt}\setlength{\belowdisplayskip}{12pt plus 2pt}%
+  \setlength{\abovedisplayshortskip}{8pt plus 2pt}\setlength{\belowdisplayshortskip}{8pt plus 2pt}}
+\newcommand{\step}[1]{\par\medskip\noindent\emph{#1}\ }
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
@@ -122,11 +129,18 @@ The algebraic identities are in addition checked by the kernel of the Lean~4 pro
 Section~\ref{lean}. Numerical values are quoted only as sanity checks and no step of the proof depends on them.
 
 \section{The generating function}
-Let $f_n(x,z)=\sum_s x^{\mathrm{hairpins}(s)}z^{\mathrm{basepairs}(s)}$ over secondary structures $s$ on $[n]$, and
-$S(X)=\sum_{n\ge0}f_n X^n$.
+Let
+\[
+f_n(x,z)=\sum_{s} x^{\mathrm{hairpins}(s)}\,z^{\mathrm{basepairs}(s)},\qquad S(X)=\sum_{n\ge0}f_n X^n,
+\]
+the sum over secondary structures $s$ on $[n]$.
 
 \begin{lemma}\label{gf}
-$S=1+XS+zX^2S\bigl(S-1+(x-1)\tfrac{X}{1-X}\bigr)$. Consequently $S=1+X+F$, where
+The series $S$ satisfies
+\[
+S=1+XS+zX^2S\Bigl(S-1+(x-1)\frac{X}{1-X}\Bigr).
+\]
+Consequently $S=1+X+F$, where
 \[
 F=\frac{-2X^4z+X^3xz+X^2z-X^2+2X-1+\sqrt R}{2X^2z(X-1)},
 \]
@@ -216,9 +230,12 @@ principle $|B_1|\le 2M/(0.5-0.45)=40M$, so $|[X^k]B_1|\le 40M\,2^k$. From \eqref
 \Phi=A+\beta\,(1-X/\rho)^{1/2}-\rho\,B_1\,(1-X/\rho)^{3/2}.
 \]
 Now $[X^m](1-X/\rho)^{\alpha}=\rho^{-m}\binom{m-\alpha-1}{m}$, and
-$\binom{N-3/2}{N}=\frac{\Gamma(N-1/2)}{\Gamma(-1/2)\Gamma(N+1)}=-\frac{1}{2\sqrt\pi}N^{-3/2}(1+O(1/N))$, while
-$\bigl|\binom{m-5/2}{m}\bigr|\le C(m+1)^{-5/2}$; the constant $C$ and the $O(1/N)$ are absolute, and $\rho$ (complex
-in general) enters only through the exact factor $\rho^{-m}$. Since $2|\rho|\le0.9$,
+\begin{gather*}
+\binom{N-3/2}{N}=\frac{\Gamma(N-\tfrac12)}{\Gamma(-\tfrac12)\,\Gamma(N+1)}=-\frac{1}{2\sqrt\pi}\,N^{-3/2}\bigl(1+O(1/N)\bigr),\\[4pt]
+\Bigl|\binom{m-5/2}{m}\Bigr|\le C\,(m+1)^{-5/2};
+\end{gather*}
+the constant $C$ and the $O(1/N)$ are absolute, and $\rho$ (complex in general) enters only through the exact
+factor $\rho^{-m}$. Since $2|\rho|\le0.9$,
 \[
 \bigl|[X^N]\rho B_1(1-X/\rho)^{3/2}\bigr|\le 40MC|\rho|^{1-N}\sum_{k=0}^{N}(0.9)^k(N-k+1)^{-5/2}=O\bigl(|\rho|^{-N}N^{-5/2}\bigr),
 \]
@@ -244,7 +261,7 @@ M_n(s,t)=\exp\bigl(nU(s,t)+W(s,t)\bigr)\,\frac{1+\varepsilon_n(e^s,e^t)}{1+\vare
 where $U=-\log\bigl(\rho(e^s,e^t)/\rho_0\bigr)$ and $W=\log\bigl(b(e^s,e^t)/b(1,1)\bigr)$ are analytic on $P$ (shrinking
 $\tau$ so that both quotients stay within distance $\tfrac12$ of $1$), with $U(0,0)=W(0,0)=0$.
 
-\smallskip\emph{The Taylor coefficients of $U$.} Differentiating $R(\rho(e^s,e^t),e^s,e^t)=0$ twice at $(0,0)$ and
+\step{The Taylor coefficients of $U$.} Differentiating $R(\rho(e^s,e^t),e^s,e^t)=0$ twice at $(0,0)$ and
 solving the resulting linear equations in $\mathbb Q(\sqrt5)$ (file \texttt{checks/verify.wls}) gives
 \[
 U(s,t)=\mu_1s+\mu_2t+\tfrac12\bigl(H_{11}s^2+2H_{12}st+H_{22}t^2\bigr)+O\bigl(|s|^3+|t|^3\bigr),
@@ -252,7 +269,7 @@ U(s,t)=\mu_1s+\mu_2t+\tfrac12\bigl(H_{11}s^2+2H_{12}st+H_{22}t^2\bigr)+O\bigl(|s
 with $\mu$ and $H$ exactly as in Theorem \ref{main}. Since $H_{11}>0$ and $\det H>0$, $H$ is positive definite, and
 $H_{12}/\sqrt{H_{11}H_{22}}=\tfrac12\sqrt{5\sqrt5-11}=c$.
 
-\smallskip\emph{Central limit theorem.} Fix $\eta=(\eta_1,\eta_2)\in\R^2$ and let
+\step{Central limit theorem.} Fix $\eta=(\eta_1,\eta_2)\in\R^2$ and let
 $Y_n=n^{-1/2}\bigl(X_n-\mu_1n,\ Z_n-\mu_2n\bigr)$. For $n$ large, $(s,t)=i\eta/\sqrt n\in P$, and by \eqref{qp},
 \[
 \E e^{i\eta\cdot Y_n}=e^{-i\sqrt n\,\mu\cdot\eta}M_n\bigl(i\eta/\sqrt n\bigr)
@@ -260,7 +277,7 @@ $Y_n=n^{-1/2}\bigl(X_n-\mu_1n,\ Z_n-\mu_2n\bigr)$. For $n$ large, $(s,t)=i\eta/\
 \]
 By L\'evy's continuity theorem $Y_n\xrightarrow{d}\mathcal N(0,H)$.
 
-\smallskip\emph{Means and variances.} For $n\ge n_0$ we have $\sup_V|\varepsilon_n|\le\frac12$. With $\operatorname{Log}$
+\step{Means and variances.} For $n\ge n_0$ we have $\sup_V|\varepsilon_n|\le\frac12$. With $\operatorname{Log}$
 the principal branch put
 \[
 g_n(s,t)=\operatorname{Log}\bigl(1+\varepsilon_n(e^s,e^t)\bigr)-\operatorname{Log}\bigl(1+\varepsilon_n(1,1)\bigr),\qquad
@@ -275,10 +292,13 @@ are the means and the (co)variances, so
 \]
 where $\Sigma_n$ is the covariance matrix of $(X_n,Z_n)$. This agrees with Theorem~3 of \cite{BKZ}, including the
 second-order terms of the means: an exact computation (file \texttt{checks/verify.wls}) gives
-$\nabla W(0)=\bigl(\tfrac{13-3\sqrt5}{20},\,-\tfrac{3+2\sqrt5}{20}\bigr)$, which equals
-$\bigl(\mu_1(\tfrac74+\tfrac{11}{20}\sqrt5),\ \mu_2(-\tfrac58-\tfrac{13}{40}\sqrt5)\bigr)$ as found there.
+\[
+\nabla W(0)=\Bigl(\frac{13-3\sqrt5}{20},\ -\frac{3+2\sqrt5}{20}\Bigr)
+=\Bigl(\mu_1\bigl(\tfrac74+\tfrac{11}{20}\sqrt5\bigr),\ \mu_2\bigl(-\tfrac58-\tfrac{13}{40}\sqrt5\bigr)\Bigr),
+\]
+as found there.
 
-\smallskip\emph{Standardization.} Consequently, for $n$ large (so that the variances are positive),
+\step{Standardization.} Consequently, for $n$ large (so that the variances are positive),
 \[
 \left(\frac{X_n-\E X_n}{\sqrt{\Var X_n}},\frac{Z_n-\E Z_n}{\sqrt{\Var Z_n}}\right)=D_nY_n+d_n,
 \]
