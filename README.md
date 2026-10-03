@@ -7,7 +7,9 @@ for a uniformly random RNA secondary structure on *n* vertices, the pair (number
 centered and scaled, converges in distribution to a bivariate normal law with correlation
 √(5√5 − 11)/2 = 0.21233…
 
-**The note:** [`paper/rna-clt.pdf`](paper/rna-clt.pdf) (source: `paper/rna-clt.tex`).
+**The note:** [`paper/rna-clt.pdf`](paper/rna-clt.pdf) (source: `paper/rna-clt.tex`). The byline is "Claude (Anthropic),
+directed and checked by Brian Sheppard". `paper/arxiv/` is the same note with the byline arXiv policy requires
+("Brian Sheppard", with a footnote crediting Claude); the two differ in nothing else.
 
 ## How this was made
 
