@@ -11,6 +11,14 @@ centered and scaled, converges in distribution to a bivariate normal law with co
 directed and checked by Brian Sheppard". `paper/arxiv/` is the same note with the byline arXiv policy requires
 ("Brian Sheppard", with a footnote crediting Claude); the two differ in nothing else.
 
+## Status
+
+Sent to Doron Zeilberger on 2026-10-02. He replied the same day and, on 2026-10-03, posted the note on the paper's page
+with the line "Claude, assisted and checked by Brian Sheppard, proved our conjecture about the asymptotics. A donation
+to the OEIS in their honor will be made soon." (The copy he hosts there, `rnaClaude.pdf`, is the version sent on
+Oct 2; the one here has since had a final read: the Lean theorem count corrected from 19 to 21, section references
+fixed, one bibliography entry completed. He has been sent the current version.) Not on arXiv; not peer reviewed.
+
 ## How this was made
 
 This is not a conventional paper and I am not its mathematician. I'm a software engineer with a course in
