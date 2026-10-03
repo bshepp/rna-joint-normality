@@ -1,6 +1,9 @@
+\pdfoutput=1
 \documentclass[11pt]{amsart}
 \usepackage[margin=1.2in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,graphicx,hyperref}
+\usepackage{amsmath,amssymb,amsthm,graphicx}
+\usepackage[hidelinks]{hyperref}
+\raggedbottom
 \usepackage{microtype}
 \linespread{1.15}
 \setlength{\parskip}{4pt plus 1pt}
@@ -20,25 +23,24 @@
 
 \title[Hairpins and basepairs are jointly normal]{Hairpins and basepairs in RNA secondary structures are asymptotically jointly normal: proof of a conjecture of Bu, Kauers and Zeilberger}
 \author{Brian Sheppard}
-\thanks{The mathematics in this note was produced by Claude (Anthropic) at the author's direction and is so
-credited throughout; see ``How this note was made'' on page~1. arXiv policy does not permit listing an AI system
+\thanks{The mathematics in this note was produced by Claude (Anthropic) at the author's direction; see ``How this note was made'' in Section~1. arXiv policy does not permit listing an AI system
 as an author, so the author line names the person responsible for the submission.}
 \email{bshepp@gmail.com}
-\date{September 2026. Not a conventional paper: see ``How this note was made'' on page 1.}
+\date{October 2026. Not a conventional paper: see ``How this note was made'' in Section 1.}
 
 \begin{document}
 \begin{abstract}
 Bu, Kauers and Zeilberger conjectured that the numbers of hairpins and of basepairs in a uniformly random
-RNA secondary structure on $n$ vertices are, after centering and scaling, asymptotically bivariate normal with
+RNA secondary structure on $n$ vertices are, after centring and scaling, asymptotically bivariate normal with
 correlation $\tfrac12\sqrt{5\sqrt5-11}=0.21233\ldots$. This note gives a rigorous proof. The method is the standard one
 (a square-root singularity that moves analytically with the marking variables, hence a quasi-power expansion of
 the moment generating function); a bivariate normal law for these two parameters was derived along these lines, at
 a heuristic level and for a family of models containing this one, by Cuesta and Manrubia in 2017, and the statement
 also follows from a general theorem of Drmota once its hypotheses are checked. What is done here is to check them:
 a short self-contained proof with a uniform coefficient estimate, the limiting mean vector and covariance matrix in
-closed form, and a verification of every algebraic identity used, both in Mathematica and in the Lean~4 proof
+closed form, and a verification of every algebraic identity used in the proof, both in Mathematica and in the Lean~4 proof
 assistant. The mathematics was produced by an AI system; the human role was direction, verification protocol and
-transparency, and is described on page~1.
+transparency, and is described in Section~1.
 \end{abstract}
 \maketitle
 
@@ -68,7 +70,7 @@ we have $(\E X_n,\E Z_n)=n\mu+O(1)$ and the covariance matrix of $(X_n,Z_n)$ is 
 The density displayed in \cite{BKZ}, $\frac{\sqrt{1-c^2}}{2\pi}e^{-x^2/2-y^2/2+cxy}$, is that of the centered
 normal law with covariance matrix $(1-c^2)^{-1}\bigl(\begin{smallmatrix}1&c\\c&1\end{smallmatrix}\bigr)$, whose
 marginals have variance $1/(1-c^2)=1.0472\ldots$; this cannot be the limit of coordinates standardized to
-variance one. We read the conjecture as its text and abstract state it: bivariate normal with unit variances and
+variance one. The conjecture is read here as its text and abstract state it: bivariate normal with unit variances and
 correlation $c$, whose density is
 $\frac{1}{2\pi\sqrt{1-c^2}}\exp\bigl(-\frac{x^2-2cxy+y^2}{2(1-c^2)}\bigr)$.
 \end{remark}
@@ -76,7 +78,7 @@ $\frac{1}{2\pi\sqrt{1-c^2}}\exp\bigl(-\frac{x^2-2cxy+y^2}{2(1-c^2)}\bigr)$.
 \subsection*{Related work and what is new}
 Nothing in the method is new. For a quadratic generating function with a simple dominant branch point, Gaussian
 limit laws follow from the ``algebraic singularity schema'' \cite[Thm.~IX.12]{FS} (one parameter) and its
-multivariate versions \cite{BR,GR}, \cite[Thm.~2.25]{D}, \cite{HK}; see also \cite[\S IX.12]{FS}.
+multivariate versions \cite{BR,GR}, \cite[Thm.~2.25]{D}, \cite{HK}; see also \cite[\S IX.12 (multivariate limit laws)]{FS}.
 For RNA secondary structures specifically:
 \begin{itemize}
 \item Jin and Reidys \cite{JR} proved central and local limit theorems for the number of basepairs alone, with the
@@ -87,8 +89,8 @@ theorem and read off a bivariate normal law, with numerical constants for $(s,m)
 level of rigour customary in physics: the coefficient asymptotics are applied for each fixed value of the marking
 variables, without the uniformity that the continuity theorem requires, and non-degeneracy is not discussed. The
 model of \cite{BKZ} is the case $s=m=1$: their discriminant $\Delta(z,w,u)$ satisfies $(1-z)^2\Delta=R$ identically,
-with $R$ as in Lemma~\ref{gf}. As a check on both computations, our code reproduces all the constants they publish
-for $(2,3)$ (file \texttt{checks/cuesta\_manrubia.wls}).
+with $R$ as in Lemma~\ref{gf}. As a check on both computations, the script \texttt{checks/cuesta\_manrubia.wls} reproduces all the
+constants they publish for $(2,3)$.
 \item Poznanovi\'c and Heitsch \cite{PH} prove univariate Gaussian laws for motif counts in a stochastic context-free
 grammar model of RNA folding, also via \cite[Thm.~IX.12]{FS}.
 \end{itemize}
@@ -110,7 +112,8 @@ hairpin are and how the argument is built; I can follow its logic in outline and
 it. I could not have produced it and I cannot certify it.
 
 Everything mathematical here was produced by Anthropic's Claude (Claude Fable 5.1, run as the Claude Code agent):
-the proof strategy, the proof, this text, the Mathematica and Lean code, and the literature search. My part was the
+the proof strategy, the proof, the text of this note outside this section and the first draft of this section,
+the Mathematica and Lean code, and the literature search. My part was the
 pipeline and the judgement calls around it. I chose the problem; I asked for external validation at each step and
 refused to accept internal consistency as evidence; I had a second, independent instance of the model referee the
 proof adversarially (it found no errors and several gaps in exposition, which were repaired); I had a third instance
@@ -129,7 +132,7 @@ Following the practice of \cite{P}, the note distinguishes throughout between wh
 argument is given) and what is \emph{machine-verified} (an identity confirmed by exact symbolic computation in
 $\mathbb Q(\sqrt5)$ or over $\mathbb Q(x,z)$; files \texttt{verify.wls} and \texttt{grammar\_check.wls} in
 \texttt{checks/}).
-The algebraic identities are in addition checked by the kernel of the Lean~4 proof assistant; see
+The algebraic identities used in the proof are in addition checked by the kernel of the Lean~4 proof assistant; see
 Section~\ref{lean}. Numerical values are quoted only as sanity checks and no step of the proof depends on them.
 
 \section{The generating function}
@@ -166,7 +169,7 @@ $\sqrt R=1-2X+(1-z)X^2+O(X^3)$, and in fact the numerator of $F$ is $-2zX^4+O(X^
 a power series with constant term $1$.
 \end{proof}
 This is Theorem~2 of \cite{BKZ} (there proved by symbolic computation \cite{B}), up to the two initial terms
-$1+X$, which the formula for $F$ omits. We also checked $[X^n]F=f_n$ for $2\le n\le14$ against exhaustive
+$1+X$, which the formula for $F$ omits. The identity $[X^n]F=f_n$ was also checked for $2\le n\le14$ against exhaustive
 enumeration (file \texttt{checks/verify.wls}).
 
 \section{Local structure at the dominant singularity}
@@ -177,7 +180,7 @@ R(X,1,1)=(X-1)^2(X^2-3X+1)(X^2+X+1),
 with roots $\rho_0=\frac{3-\sqrt5}{2}=0.38196\ldots$ (simple), $1$ (double), $e^{\pm2\pi i/3}$ and $1/\rho_0$.
 
 \begin{lemma}\label{local}
-There are a bounded open neighbourhood $V\subset\C^2$ of $(1,1)$, on which $|z|\ge\frac12$, and an analytic
+There exist a bounded open neighbourhood $V\subset\C^2$ of $(1,1)$, on which $|z|\ge\frac12$, and an analytic
 $\rho:V\to\C$ with $\rho(1,1)=\rho_0$ and $0<|\rho|\le 0.45$ on $V$, such that for $(x,z)\in V$
 \[
 R(X,x,z)=\Bigl(1-\frac{X}{\rho(x,z)}\Bigr)Q(X;x,z),
@@ -212,7 +215,7 @@ in $X$,
 Let $\beta(x,z)=B(\rho(x,z);x,z)$, analytic on $V$. At $(1,1)$, $Q(\rho_0)=-\rho_0\,\partial_XR(\rho_0,1,1)=36\sqrt5-80>0$,
 so
 \[
-\beta(1,1)=\frac{\sqrt{36\sqrt5-80}}{2(\rho_0-1)}\neq0 ,
+\beta(1,1)=\frac{\sqrt{36\sqrt5-80}}{2(\rho_0-1)}\neq0 .
 \]
 We now replace $V$ by a smaller neighbourhood of $(1,1)$ whose closure is a compact subset of the original one and
 on which $|\beta|\ge\beta_{\min}>0$. Then $A$ and $B$ are bounded on $\{|X|\le\frac12\}\times V$. This $V$ is fixed
@@ -329,13 +332,13 @@ normal law (ellipses and curves).}\label{fig}
 
 \section{Formal verification of the algebra}\label{lean}
 The file \texttt{lean\_check/LeanCheck/Basic.lean} proves the following in Lean~4 with Mathlib, over an arbitrary field
-of characteristic zero or, where $\sqrt5$ is involved, over $\mathbb R$ with a symbol $s$ subject only to $s^2=5$ (and
-$s>0$ for the inequalities): the factorization \eqref{fact}; the functional equation of Lemma~\ref{gf} for
+of characteristic zero or, where $\sqrt5$ is involved, over $\mathbb R$ with a symbol $\mathtt{s}$ standing for $\sqrt5$
+and subject only to $\mathtt{s}^2=5$ (and $\mathtt{s}>0$ for the inequalities): the factorization \eqref{fact}; the functional equation of Lemma~\ref{gf} for
 $S=1+X+F$, for any $r$ with $r^2=R$; $R(\rho_0,1,1)=0$; the complete Taylor expansion of $R$ at $(\rho_0,1,1)$, which
 certifies all partial derivatives of $R$ there, in particular $\partial_XR=30-14\sqrt5\ne0$; the first- and
 second-order implicit-differentiation identities satisfied by the Taylor coefficients of $\rho(e^s,e^t)$; the values of
 $\mu$ and $H$ obtained from them; $\det H=(13\sqrt5-29)/50>0$, $H_{11}>0$, $H_{12}>0$,
-$H_{12}^2=\tfrac{5\sqrt5-11}{4}H_{11}H_{22}$; and $Q(\rho_0)=36\sqrt5-80>0$. All nineteen theorems are accepted by the
+$H_{12}^2=\tfrac{5\sqrt5-11}{4}H_{11}H_{22}$; and $Q(\rho_0)=36\sqrt5-80>0$. All twenty-one theorems are accepted by the
 kernel with no axioms beyond the three standard ones (\texttt{propext}, \texttt{Classical.choice},
 \texttt{Quot.sound}). Mathematica is used only to propose the polynomials; Lean re-verifies them from scratch.
 
@@ -365,7 +368,7 @@ Monatsh. Math. \textbf{187} (2018), 293--314.
 \bibitem{H} H.-K. Hwang, \emph{On convergence rates in the central limit theorems for combinatorial structures},
 European J. Combin. \textbf{19} (1998), 329--343.
 \bibitem{JSZ} C. Jardon, B. Sheppard and V. Zaveri, \emph{A motion planning algorithm in a figure eight track},
-arXiv:2403.05570 (2024).
+PUMP J. Undergrad. Res. \textbf{6} (2023), 224--249; arXiv:2403.05570.
 \bibitem{JR} E. Y. Jin and C. M. Reidys, \emph{Central and local limit theorems for RNA structures}, J. Theor. Biol.
 \textbf{250} (2008), 547--559; arXiv:0707.4281.
 \bibitem{P} J. S. Padhi, \emph{Solutions to five challenge problems in enumerative and algorithmic combinatorics, with

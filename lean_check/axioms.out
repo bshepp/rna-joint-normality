@@ -4,6 +4,7 @@
 'RNA.taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.jet_order1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.jet_order2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RNA.rho0_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.mu1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.mu2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.H11_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -17,3 +18,4 @@
 'RNA.Q_rho0' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.Q_rho0_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RNA.sqrt5_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RNA.sqrt5_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

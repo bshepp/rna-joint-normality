@@ -33,7 +33,7 @@ in it can be re-run from this repository. The method is standard (see "Related w
 | Path | What it does | Trust base |
 |---|---|---|
 | `paper/` | The note. | human-readable proof |
-| `lean_check/` | Lean 4 + Mathlib: 19 theorems covering every algebraic identity the proof uses (factorization of the discriminant, the functional equation for the generating function, the root, the full Taylor expansion at the singular point, the implicit-differentiation identities, the mean vector and covariance matrix, det H > 0, the correlation). `axioms.out` shows only the three standard axioms are used. | Lean kernel |
+| `lean_check/` | Lean 4 + Mathlib: 21 theorems covering every algebraic identity the proof uses (factorization of the discriminant, the functional equation for the generating function, the root, the full Taylor expansion at the singular point, the implicit-differentiation identities, the mean vector and covariance matrix, det H > 0, the correlation). `axioms.out` shows only the three standard axioms are used. | Lean kernel |
 | `lean_check/gen/` | Mathematica script that *proposes* the long polynomials, and the Python script that assembles `Basic.lean`. Lean re-verifies everything, so these are not trusted. | none needed |
 | `checks/verify.wls` | Exact Mathematica checks: generating function vs brute-force enumeration (n ≤ 14), singularity structure, Hessian, second-order terms of the means vs Theorem 3 of Bu–Kauers–Zeilberger, numerical sanity. Output in `verify.out`. | Mathematica |
 | `checks/grammar_check.wls` | The published generating function satisfies the first-vertex grammar equation. | Mathematica (also in Lean) |

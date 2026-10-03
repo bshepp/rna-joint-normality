@@ -6,6 +6,7 @@ open RNA
 #print axioms taylor
 #print axioms jet_order1
 #print axioms jet_order2
+#print axioms rho0_pos
 #print axioms mu1_eq
 #print axioms mu2_eq
 #print axioms H11_eq
@@ -19,3 +20,4 @@ open RNA
 #print axioms Q_rho0
 #print axioms Q_rho0_pos
 #print axioms sqrt5_sq
+#print axioms sqrt5_pos
