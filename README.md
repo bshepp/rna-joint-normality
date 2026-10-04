@@ -77,4 +77,4 @@ Brian Sheppard, bshepp@gmail.com. Corrections are welcome.
 
 ## License
 
-Code: MIT. Text of the note: CC BY 4.0.
+Code: MIT (`LICENSE`). Text of the note in `paper/`: CC BY 4.0 (`paper/LICENSE`).
