@@ -15,9 +15,8 @@ directed and checked by Brian Sheppard". `paper/arxiv/` is the same note with th
 
 Sent to Doron Zeilberger on 2026-10-02. He replied the same day and, on 2026-10-03, posted the note on the paper's page
 with the line "Claude, assisted and checked by Brian Sheppard, proved our conjecture about the asymptotics. A donation
-to the OEIS in their honor will be made soon." (The copy he hosts there, `rnaClaude.pdf`, is the version sent on
-Oct 2; the one here has since had a final read: the Lean theorem count corrected from 19 to 21, section references
-fixed, one bibliography entry completed. He has been sent the current version.) Not on arXiv; not peer reviewed.
+to the OEIS in their honor will be made soon." On 2026-10-04 he replaced the hosted file with the current version (`rnaClaude.pdf` there is
+byte-identical to `paper/rna-clt.pdf` here as of that date) and added a link to this repository. Not on arXiv; not peer reviewed.
 
 ## How this was made
 
